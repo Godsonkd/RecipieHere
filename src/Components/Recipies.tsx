@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Grid, Card, CardContent, Typography, CardMedia, FormControl,Select,MenuItem,InputLabel, useMediaQuery} from '@mui/material';
+import { Grid, Card, CardContent, Typography, CardMedia, FormControl, Select, MenuItem, useMediaQuery} from '@mui/material';
 import { fetchDishes } from '../Api/Api';
 import { StyledGrid } from '../styles/styles';
 import Loader from './Loader';
@@ -169,7 +169,7 @@ const filterCategory=(item:string)=>{
                     <FormControl sx={{width:"300px"}}>
                    
                       
-                    <Typography textAlign="left" mb={1}>Choose category</Typography>
+                    <Typography textAlign="left" mb={1}>{t('ChooseCategory')}</Typography>
                       
                       <Select
                         labelId="demo-simple-select-label"
@@ -182,7 +182,7 @@ const filterCategory=(item:string)=>{
                         { Categories.map((item, index) => (
                           
                             <MenuItem key={index} value={item} onClick={()=>filterCategory(item)} >
-                              {item}
+                              {t(item)}
                             </MenuItem>
                             ))
                           }

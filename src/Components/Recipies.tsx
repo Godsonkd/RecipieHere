@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Grid, Card, CardContent, Typography, CardMedia} from '@mui/material';
+import { Grid, Card, CardContent, Typography, CardMedia, FormControl,Select,MenuItem,InputLabel, useMediaQuery} from '@mui/material';
 import { fetchDishes } from '../Api/Api';
 import { StyledGrid } from '../styles/styles';
 import Loader from './Loader';
@@ -20,11 +20,19 @@ export const Recipies = () => {
 
   const { t } = useTranslation();
     
-    const [dishes,setDishes]=useState<AllDishes[]>([])
+  const [dishes, setDishes] = useState<AllDishes[]>([]);
+  const [dishesforFilter, setDishesForFilter] = useState<AllDishes[]>([]);
+  
+  
+    
     const dishesPerPage=8;
     const [popup,setPopup]=useState(false);
     const [currentPage,setCurrentPage]=useState(1);
     const [loading,setLoading]=useState<boolean>(true);
+
+    const [cate,setCate]=useState<string>("All");
+   
+    const isSmallScreen = useMediaQuery('(max-width:1000px)');
 
     const end=currentPage*dishesPerPage;
     const start=end-dishesPerPage;
@@ -65,6 +73,7 @@ export const Recipies = () => {
             
             
             setDishes(dishesHere.meals);
+            setDishesForFilter(dishesHere.meals)
             setLoading(false)
           } catch (error) {
             console.log(error);
@@ -72,9 +81,22 @@ export const Recipies = () => {
           }
         };
     
-        console.log(dishDetails.strMeal);
-        
+        // Dont want category repeating
 
+        const FullCategories: string[] = ["All"];
+        let Categories:string[]=[];
+        dishesforFilter.map((item)=>{
+           return FullCategories.push(item.strCategory);
+        })
+        const uniqueSet = new Set(FullCategories);
+        Categories=Array.from(uniqueSet);
+        
+        // console.log(Categories);
+
+
+       
+        
+        
 
     useEffect(() => {
         fetchDishesApi();
@@ -120,6 +142,19 @@ export const Recipies = () => {
       
 const NumberOfPages= dishes.length/dishesPerPage;
 
+const filterCategory=(item:string)=>{
+
+  
+
+    const filteredDishes=dishesforFilter.filter((dish)=>{
+        return dish.strCategory === item
+    })
+
+    setDishes(item === "All" ? dishesforFilter :filteredDishes);
+    setCate(item)
+    setCurrentPage(1)
+}
+
 
 
   return (
@@ -130,7 +165,34 @@ const NumberOfPages= dishes.length/dishesPerPage;
         <Grid item xs={12} sm={12} md={12} lg={12} textAlign="center">
         <h2>{t('Heading')}</h2>
         </Grid>
-    
+        <Grid item xs={12} sm={12} md={12} lg={12} textAlign={isSmallScreen ? "center" :"right"}>
+                    <FormControl sx={{width:"300px"}}>
+                   
+                      
+                    <Typography textAlign="left" mb={1}>Choose category</Typography>
+                      
+                      <Select
+                        labelId="demo-simple-select-label"
+                        id="demo-simple-select"
+                        value={cate}
+                        onChange={(e)=> setCate(e.target.value)}
+                        sx={{textAlign:"left"}}
+                      >
+                          
+                        { Categories.map((item, index) => (
+                          
+                            <MenuItem key={index} value={item} onClick={()=>filterCategory(item)} >
+                              {item}
+                            </MenuItem>
+                            ))
+                          }
+                       
+                      </Select>
+                    
+                         
+  
+                  </FormControl>
+        </Grid>
         {RecipiesOfDishes}
 
        {popup && <PopUp

@@ -3,7 +3,6 @@ import { useTranslation } from 'react-i18next';
 
 type Page={
   currentPage:number,
-  dishesPerPage:number,
   NumberOfPages:number,
   buttonClick: (item: number) => void,
  
@@ -13,7 +12,7 @@ type Page={
 
 
 
-export const Pagination = ({currentPage,dishesPerPage,NumberOfPages,buttonClick,setCurrentPage}:Page) => {
+export const Pagination = ({currentPage,NumberOfPages,buttonClick,setCurrentPage}:Page) => {
  
   const { t } = useTranslation();
   

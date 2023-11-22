@@ -13,7 +13,7 @@ i18n
           Heading:'Our Recipies',
           Home:'Home',
           Checkout:'Checkout',
-          Recipie:'Recipie',
+          Recipie:'Recipe',
           Login:'Login',
           Previous:'Previous',
           Next:'Next',

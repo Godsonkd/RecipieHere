@@ -211,7 +211,6 @@ const filterCategory=(item:string)=>{
       <Grid container  spacing={3} sx={{padding:"0 10%",height:"100px"}} justifyContent="center" alignItems="center" >
          <Pagination 
             currentPage={currentPage}
-            dishesPerPage={dishesPerPage}
             NumberOfPages={NumberOfPages}
             buttonClick={buttonClick}
             setCurrentPage={setCurrentPage}

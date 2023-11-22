@@ -19,8 +19,8 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     max-width: 400px;
     width: 100%;
-    text-align: center;
-    
+    overflow-y: auto; /* Use 'auto' to show the scrollbar only when necessary */
+  height: 80%; /* Set a maximum height for the content */
   }
   
   .closeButton {

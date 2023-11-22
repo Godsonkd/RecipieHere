@@ -12,8 +12,11 @@ type AllDishes={
     strMealThumb:string,
     strMeal:string,
     strCategory:string
-   
-
+    strIngredient1?:string,
+    strIngredient2?:string,
+    strIngredient3?:string,
+    strIngredient4?:string,
+    strInstructions?:string,
 }
 
 export const Recipies = () => {
@@ -45,6 +48,7 @@ export const Recipies = () => {
         strCategory: '',
         strMeal: '',
         strMealThumb: '',
+        strInstructions:'',
       },
     );
 
@@ -55,13 +59,16 @@ export const Recipies = () => {
 
    //handle popup
 
-   const handlePopup = (Category: string, Meal: string, MealThumb: string): void => {
+
+
+   const handlePopup = (Category: string, Meal: string, MealThumb: string,Instructions?:string): void => {
     setPopup(true);
     setDishDetails(
       {
         strCategory: Category,
         strMeal: Meal,
         strMealThumb: MealThumb,
+        strInstructions:Instructions
       },
     );
   };
@@ -75,11 +82,16 @@ export const Recipies = () => {
             setDishes(dishesHere.meals);
             setDishesForFilter(dishesHere.meals)
             setLoading(false)
+            
+            
           } catch (error) {
             console.log(error);
             
           }
         };
+
+
+        console.log(dishes);
     
         // Dont want category repeating
 
@@ -91,7 +103,7 @@ export const Recipies = () => {
         const uniqueSet = new Set(FullCategories);
         Categories=Array.from(uniqueSet);
         
-        // console.log(Categories);
+        // console.log(Categories);strIngredient1
 
 
        
@@ -116,7 +128,7 @@ export const Recipies = () => {
                     boxShadow:"0 4px 8px rgba(0, 0, 0, 0.4)",
                     cursor:"pointer"
                 }}
-                onClick={()=>handlePopup(dish.strCategory,dish.strMeal,dish.strMealThumb)}
+                onClick={()=>handlePopup(dish.strCategory,dish.strMeal,dish.strMealThumb,dish.strInstructions)}
                 >
                   <CardMedia
                     component="img"
@@ -199,6 +211,7 @@ const filterCategory=(item:string)=>{
           strCategory={dishDetails.strCategory}
           strMeal={dishDetails.strMeal}
           strMealThumb={dishDetails.strMealThumb}
+          strInstructions={dishDetails.strInstructions}
           popup={popup}
           setPopup={setPopup}
         />

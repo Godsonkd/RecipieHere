@@ -13,7 +13,7 @@ export const Header = () => {
         
             <StyledNav>
                 <li><a  href='/'>{t('Home')}</a></li>
-                <li><a href="/">{t('Checkout')}</a></li>
+                <li><a href="/contact">{t('Contact')}</a></li>
                <ChangeButton  />
               
             </StyledNav>

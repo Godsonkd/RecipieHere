@@ -12,7 +12,7 @@ i18n
           heroPara:'Elevate your culinary skills with our curated collection of simple, delicious recipes that turn every meal into a masterpiece.',
           Heading:'Our Recipies',
           Home:'Home',
-          Checkout:'Checkout',
+          Contact:'Contact',
           Recipie:'Recipe',
           Login:'Login',
           Previous:'Previous',
@@ -28,7 +28,11 @@ i18n
           Beef:'Beef',
           Pork:'Pork',
           All:'All',
-          ChooseCategory:'Choose Category'
+          ChooseCategory:'Choose Category',
+          firstName:'First Name',
+          lastName:'Last Name',
+          email:'Email',
+          contactUs:'Contact Us'
         },
       },
       JA: {
@@ -37,7 +41,7 @@ i18n
           heroPara:'あらゆる食事を傑作に変える、シンプルでおいしいレシピの厳選されたコレクションで料理のスキルを高めましょう。',
           Heading:'私たちのレシピ',
           Home:'家',
-          Checkout:'チェックアウト',
+          Contact:'接触',
           Recipie:'レシピ',
           Login:'ログイン',
           Previous:'前の',
@@ -53,7 +57,11 @@ i18n
           Beef:'牛肉',
           Pork:'豚肉',
           All:'全て',
-          ChooseCategory:'カテゴリを選択してください'
+          ChooseCategory:'カテゴリを選択してください',
+          firstName:'ファーストネーム',
+          lastName:'苗字',
+          email:'Eメール',
+          contactUs:'お問い合わせ'
         },
       },
     },

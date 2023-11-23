@@ -90,9 +90,9 @@ export const Recipies = () => {
           }
         };
 
+console.log(dishes);
 
-        console.log(dishes);
-    
+            
         // Dont want category repeating
 
         const FullCategories: string[] = ["All"];

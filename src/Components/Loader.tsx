@@ -7,7 +7,7 @@ const Loader = () => {
   return (
     <StyledLoader>
         
-        <img width={200} height={200} src={Loading} alt="" />
+        <img  src={Loading} alt="" />
     </StyledLoader>
   )
 }

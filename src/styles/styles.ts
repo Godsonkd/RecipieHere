@@ -99,20 +99,34 @@ export const StyledGrid= styled(Grid)({
     }
 })
 
-export const StyledLoader= styled('div')({
-    
-   
-    position:"absolute",
-    display:"flex",
-    justifyContent:"center",
-    alignItems:"center",
-    top:"0",
-   
-    left:"0",
-   
-    height:"100%",
-    width:"100%",
-    backgroundColor:"black",
-    color:"white",
-  zIndex:"10"
-})
+
+
+export const StyledLoader = styled('div')({
+  position: 'absolute',
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  top: '0',
+  left: '0',
+  height: '100%',
+  width: '100%',
+  backgroundColor: 'black',
+  color: 'white',
+  zIndex: '10',
+
+  '& svg': {
+    style: {
+      maxWidth: '100%', // Make the SVG responsive
+      height: 'auto',    // Maintain aspect ratio
+      marginLeft: 'auto', // Center the SVG horizontally
+      marginRight: 'auto', // Center the SVG horizontally
+      display: 'block',  // Remove extra space around inline elements
+    },
+  },
+  
+  '@media (max-width: 600px)': {
+    /* Styles for screens with a maximum width of 600px */
+    fontSize: '14px', // Adjust the font size based on your design
+    paddingLeft:"15%"
+  },
+});
